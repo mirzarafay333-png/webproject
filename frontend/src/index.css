@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  min-height: 100vh;
+  font-family: Inter, sans-serif;
+  color: #f8fafc;
+  background: #030712;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at top left, rgba(56,189,248,0.16), transparent 18%),
+    radial-gradient(circle at bottom right, rgba(168,85,247,0.14), transparent 20%);
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5,8,22,0.9), rgba(3,6,17,0.96));
+  z-index: -1;
+  pointer-events: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition hover:-translate-y-0.5 hover:shadow-xl;
+}
+
+.btn-danger {
+  @apply bg-red-500 hover:bg-red-600 px-4 py-2 rounded-xl transition;
+}
+
+@layer components {
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10;
+  }
+
+  .input-field {
+    @apply w-full rounded-[12px] border border-blue-500/20 bg-[#0F172A] px-4 py-3 text-white outline-none transition;
+    background-image: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  .input-field:focus,
+  .input-field:focus-visible {
+    @apply border-blue-500/70 ring-2 ring-blue-500/20;
+    box-shadow: 0 0 0 1px rgba(59,130,246,0.25), 0 0 20px rgba(59,130,246,0.08);
+  }
+
+  .input-field::placeholder {
+    color: rgba(255,255,255,0.55);
+  }
+}
