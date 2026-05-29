@@ -15,6 +15,9 @@ pnpm-debug.log*
 # Vite build output
 dist/
 
+# Archives
+*.zip
+
 # Misc
 .DS_Store
 *.log
